@@ -28,11 +28,20 @@ class Game {
     this.gameOver.src = "images/freetileset/png/BG/bgGameOver.png";
 
     //sounds
+    this._music = new Audio()
     this._yeah = new Audio()
-    this._yeah.src = 'sound/mario-kart-64.mp3'
+    this._newLife = new Audio()
+    this._ouch = new Audio()
+    this._gameOverSound = new Audio()
+    this._music.src = 'sound/myMusic.mp3'
+    this._yeah.src = 'sound/mario-kart-64.mp3';
+    this._newLife.src = 'sound/newLife.mp3';
+    this._ouch.src = 'sound/oouch.mp3'
+    this._gameOverSound.src = 'sound/gameOver.mp3'
   }
 
   _start() {
+    this._music.play()
     this._intervalId = setInterval(() => {
       this._clear();
       this._addMeteorite();
@@ -117,6 +126,7 @@ class Game {
       const colX = dino.x + dino.width > box.x && dino.x < box.x + box.width;
       const colY = dino.y + dino.height > box.y && dino.y < box.y + box.height;
       if (colX && colY) {
+          this._ouch.play()
           this._obstacleBox.splice(i, 1)
           dino.health -= 1
         if(dino.health === 0) {
@@ -130,6 +140,7 @@ class Game {
       const colX = dino.x + dino.width > mets.x && dino.x < mets.x + mets.width;
       const colY = dino.y + dino.height > mets.y && dino.y < mets.y + mets.height;
       if (colX && colY) {
+        this._ouch.play()
         this._meteorites.splice(i, 1)
         dino.health -= 1
         console.log(dino.health)
@@ -148,6 +159,7 @@ class Game {
         this.frameNumber += 1;
         this._meats.splice(i, 1)
         if(this.frameNumber === 5) {
+          this._newLife.play()
           dino.health++
         }
       }
@@ -176,6 +188,8 @@ class Game {
 
   _drawGameOver() {
     if (this._gameOver) {
+      this._music.pause()
+      this._gameOverSound.play()
       this._ctx.drawImage(
         this.gameOver,
         this.x,
