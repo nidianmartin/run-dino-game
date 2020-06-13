@@ -17,8 +17,6 @@ class Tiles {
     //images floor
     this._imag = new Image();
     this._imag.src = "images/freetileset/png/Tiles/tileUp.png";
-
-    this._meat = new Meat(this._ctx)
   }
 
 
@@ -41,5 +39,19 @@ class Tiles {
     if (this.x + this.canvasWidth <= 0) {
       this.x = this.canvasWidth * 0.70;;
     }
+  }
+}
+
+class Meat extends Tiles {
+  constructor(ctx) {
+    super(ctx);
+    this.width = 50;
+    this.height = 50;
+    this.y = this.canvasHeight * 0.42;
+    this._imag.src = "images/freetileset/png/Object/meat.png";
+  }
+
+  draw() {
+    this._ctx.drawImage(this._imag, this.x, this.y, this.width, this.height);
   }
 }

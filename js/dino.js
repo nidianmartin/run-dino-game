@@ -26,9 +26,6 @@ class Dino {
     this._ticks = 0;
 
     new Movements(this).listenerMove();
-    this._tiles = new Tiles(this._ctx);
-    this._box = new Box(this._ctx);
-    this._meat = new Meat(this._ctx);
   }
 
   draw() {

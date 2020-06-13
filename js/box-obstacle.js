@@ -24,13 +24,3 @@ class Box {
     this.x += this.speedX;
   }
 }
-
-class Meat extends Box {
-  constructor(ctx) {
-    super(ctx);
-    this.x = this.canvasWidth * 0.7;
-    this.y = this.canvasHeight * 0.45;
-    this.speedX = 0;
-    this._imag.src = "images/freetileset/png/Object/meat.png";
-  }
-}

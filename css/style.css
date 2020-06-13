@@ -2,11 +2,17 @@ body {
     font-size: 20px;
 }
 
+@font-face {
+    font-family: 'Games';
+    src: url('./Games.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+ }
+
 canvas {
     display: block;
     border: 1px dotted;
     margin: 0 auto;
-    font-family: 'Games'
 }
 
 .bg {

@@ -10,6 +10,7 @@ class Game {
     this._jungle = new Jungle(this._ctx);
     this._dino = new Dino(this._ctx);
     this._score = new Score(this._ctx);
+    this._health = new Healt(this._ctx)
 
     this.tickBox = 0;
     this.tickMeteorites = 0;
@@ -25,6 +26,10 @@ class Game {
     this.frameNumber = 0;
     this.gameOver = new Image();
     this.gameOver.src = "images/freetileset/png/BG/bgGameOver.png";
+
+    //sounds
+    this._yeah = new Audio()
+    this._yeah.src = 'sound/mario-kart-64.mp3'
   }
 
   _start() {
@@ -32,7 +37,6 @@ class Game {
       this._clear();
       this._addMeteorite();
       this._addObstacleBox();
-      this._addMeat();
       this._addTile();
       this._draw();
       this._addCollisions();
@@ -51,10 +55,10 @@ class Game {
 
   _draw() {
     this._jungle.draw();
-    this._dino.draw();
     this._tiles.forEach((tile) => {
       tile.drawRaisedFloor();
     })
+    this._dino.draw();
     this._meteorites.forEach((mets) => {
       mets.draw();
     });
@@ -65,6 +69,7 @@ class Game {
       meat.draw();
     });
     this._score.draw(this.frameNumber);
+    this._health.draw(this._dino.health)
   }
 
   _move() {
@@ -98,17 +103,11 @@ class Game {
     }
   }
 
-  _addMeat() {
-    if (this.tickMeat++ === 1000) {
-      this.tickMeat = 0;
-      this._meats.push(new Meat(ctx));
-    }
-  }
-
   _addTile() {
-    if (this.tickTile++ === 1000) {
+    if (this.tickTile++ === 500) {
       this.tickTile = 0;
       this._tiles.push(new Tiles(ctx))
+      this._meats.push(new Meat(ctx));
     }
   }
 
@@ -143,13 +142,13 @@ class Game {
 
     this._meats.forEach((meat, i) => {
       const colX = dino.x + dino.width > meat.x && dino.x < meat.x + meat.width;
-      const colY = dino.x + dino.width > meat.x && dino.x < meat.x + meat.width;
+      const colY = dino.y + dino.height > meat.y && dino.y < meat.y + meat.height;
       if (colX && colY) {
+        this._yeah.play()
         this.frameNumber += 1;
         this._meats.splice(i, 1)
-        if(this.frameNumber === 1) {
-          dino.health += 1
-          console.log(dino.health)
+        if(this.frameNumber === 5) {
+          dino.health++
         }
       }
     });
