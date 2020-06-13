@@ -6,13 +6,13 @@ class Jungle {
     this.canvasWidth = this._ctx.canvas.width;
     this.canvasHeight = this._ctx.canvas.height;
 
-    this.speedX = -1;
+    this.speedX = -3;
     this.speedY = 0;
     this.accelerationX = 0;
     this.accelerationY = 0;
 
     this._imag = new Image();
-    this._imag.src = 'images/freetileset/png/BG/BG1.png';
+    this._imag.src = 'images/freetileset/png/BG/BG.png';
   }
 
   draw() {
@@ -43,4 +43,5 @@ class Jungle {
       this.x = 0;
     }
   }
+
 }

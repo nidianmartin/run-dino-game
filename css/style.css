@@ -1,5 +1,28 @@
+body {
+    font-size: 20px;
+}
+
 canvas {
     display: block;
     border: 1px dotted;
     margin: 0 auto;
+    font-family: 'Games'
+}
+
+.bg {
+    background-image: url('../images/freetileset/png/BG/BGPrincipal.png');
+    background-repeat: no-repeat;
+    /* background-color: #ABF5E4; */
+}
+
+@media(min-width: 1600px) {
+   .bg {
+    background-image: url('../images/freetileset/png/BG/principal1200.png') ;
+    background-color: #ABF5E4 ;
+   }
+
+   canvas {
+       width: 1613px;
+       height: 850px;
+   }
 }

@@ -5,9 +5,17 @@ window.onload = () => {
     document.getElementById('start-button').onclick = () => {
       startGame();
     };
-  
+    
+    const playGame = new Game(ctx)
+
     function startGame() {
-     const playGame = new Game(ctx)
      playGame._start()
     }
+
+    document.getElementById('stop-button').onclick = () => {
+      stopGame();
+    };
+    function stopGame() {
+      playGame._stop()
+     }
   };

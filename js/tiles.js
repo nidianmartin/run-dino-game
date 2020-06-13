@@ -1,16 +1,15 @@
 class Tiles {
   constructor(ctx) {
     this._ctx = ctx;
-    this._intervalId = null
     this.canvasWidth = this._ctx.canvas.width;
     this.canvasHeight = this._ctx.canvas.height;
     this.x = this.canvasWidth * 0.70;
     this.y = this.canvasHeight * 0.3;
 
-    this.width = 350;
-    this.height = 200;
+    this.width = 300;
+    this.height = 250;
 
-    this.speedX = -2 //-1;
+    this.speedX = -3;
     this.speedY = 0;
     this.accelerationX = 0;
     this.accelerationY = 0;
@@ -18,6 +17,8 @@ class Tiles {
     //images floor
     this._imag = new Image();
     this._imag.src = "images/freetileset/png/Tiles/tileUp.png";
+
+    this._meat = new Meat(this._ctx)
   }
 
 
