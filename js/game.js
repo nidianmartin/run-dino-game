@@ -143,7 +143,6 @@ class Game {
         this._ouch.play()
         this._meteorites.splice(i, 1)
         dino.health -= 1
-        console.log(dino.health)
         if(dino.health === 0) {
           this._gameOver = true;
           this._stop();
@@ -183,12 +182,12 @@ class Game {
   }
 
   _stop() {
+    this._music.pause()
     clearInterval(this._intervalId);
   }
 
   _drawGameOver() {
     if (this._gameOver) {
-      this._music.pause()
       this._gameOverSound.play()
       this._ctx.drawImage(
         this.gameOver,

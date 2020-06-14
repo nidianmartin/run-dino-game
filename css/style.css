@@ -1,34 +1,70 @@
 body {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 @font-face {
-    font-family: 'Games';
-    src: url('./Games.ttf') format("truetype");
-    font-weight: normal;
-    font-style: normal;
- }
+  font-family: "Games";
+  src: url("./Games.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#general {
+  display: flex;
+}
 
 canvas {
-    display: block;
-    border: 1px dotted;
-    margin: 0 auto;
+  margin: 0 auto;
+  position: relative;
+  margin-left: 114px;
+  z-index: 1;
 }
 
 .bg {
-    background-image: url('../images/freetileset/png/BG/BGPrincipal.png');
-    background-repeat: no-repeat;
-    /* background-color: #ABF5E4; */
+  background-image: url("../images/freetileset/png/BG/BGPrincipal.png");
+  background-repeat: no-repeat;
+  /* background-color: #ABF5E4; */
 }
 
-@media(min-width: 1600px) {
-   .bg {
-    background-image: url('../images/freetileset/png/BG/principal1200.png') ;
-    background-color: #ABF5E4 ;
-   }
+#start-button {
+  width: 5%;
+  position: fixed;
+  margin: 1px;
+}
 
-   canvas {
-       width: 1613px;
-       height: 850px;
-   }
+#stop-button {
+  width: 5%;
+  position: fixed;
+  margin-top: 85px;
+}
+
+#refresh-button {
+  width: 5%;
+  position: fixed;
+  margin-top: 170px;
+}
+
+.start > img {
+  width: 100%;
+  height: auto;
+}
+
+.instructions {
+  width: 18%;
+  position: absolute;
+  z-index: 1;
+  margin-left: 40%;
+  margin-top: 19%;
+}
+
+@media (min-width: 1600px) {
+  .bg {
+    background-image: url("../images/freetileset/png/BG/principal1200.png");
+    background-color: #abf5e4;
+  }
+
+  canvas {
+    width: 1613px;
+    height: 850px;
+  }
 }
