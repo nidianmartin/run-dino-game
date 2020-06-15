@@ -57,7 +57,7 @@ canvas {
   margin-top: 19%;
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   .bg {
     background-image: url("../images/freetileset/png/BG/principal1200.png");
     background-color: #abf5e4;
