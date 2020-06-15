@@ -43,5 +43,13 @@ class Jungle {
       this.x = 0;
     }
   }
+}
 
+class JungleLevel2 extends Jungle {
+  constructor(ctx) {
+    super(ctx) 
+    this.speedX = -3;
+    this._imag = new Image();
+    this._imag.src = 'images/freetileset/png/BG/BGNivel2.png';
+  }
 }

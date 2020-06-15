@@ -5,6 +5,9 @@ class Movements {
     this.speedY = 0;
     this.accelerationX = 0;
     this.accelerationY = 0;
+
+    this._bulletSound = new Audio(); 
+    this._bulletSound.src = "sound/disparo.mp3"
   }
 
   listenerMove() {
@@ -18,6 +21,10 @@ class Movements {
           break;
         case LEFT:
           this.player.speedX = -3;
+          break;
+        case SPACE: 
+        this._bulletSound.play();
+        this.player.shoot()
           break;
       }
     });

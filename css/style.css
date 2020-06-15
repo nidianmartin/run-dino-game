@@ -50,10 +50,10 @@ canvas {
 }
 
 .instructions {
-  width: 18%;
+  width: 30%;
   position: absolute;
   z-index: 1;
-  margin-left: 40%;
+  margin-left: 35%;
   margin-top: 19%;
 }
 
@@ -64,7 +64,36 @@ canvas {
   }
 
   canvas {
-    width: 1613px;
-    height: 850px;
+    width: 1617px;
+    height: 900px;
+    position: relative;
+    margin-left: 142px;
+    z-index: 1;
+  }
+
+  #start-button {
+    width: 4%;
+    position: fixed;
+    margin: 1px;
+  }
+
+  #stop-button {
+    width: 4%;
+    position: fixed;
+    margin-top: 85px;
+  }
+
+  #refresh-button {
+    width: 4%;
+    position: fixed;
+    margin-top: 176px;
+  }
+
+  .instructions {
+    width: 20%;
+    position: absolute;
+    z-index: 1;
+    margin-left: 40%;
+    margin-top: 16%;
   }
 }

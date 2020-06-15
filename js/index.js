@@ -9,7 +9,7 @@ window.onload = () => {
   };
 
   document.getElementById("stop-button").onclick = () => {
-    playGame._stop();
+    playGame._pause();
   };
 };
 

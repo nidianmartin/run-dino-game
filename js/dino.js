@@ -10,7 +10,7 @@ class Dino {
 
     this.width = this.canvasWidth * 0.10;
     this.height = this.canvasHeight * 0.20;
-    this.health = 5
+    this.health = 10
 
     this.speedX = 0;
     this.speedY = 0;
@@ -24,6 +24,8 @@ class Dino {
     this._imag.frames = 4;
     this._imag.framesIndex = 0;
     this._ticks = 0;
+
+    this.bullets = [];
 
     new Movements(this).listenerMove();
   }
@@ -50,6 +52,8 @@ class Dino {
         this._imag.framesIndex = 0;
       }
     }
+
+    this.drawBullet();
   }
 
   move() {
@@ -62,6 +66,8 @@ class Dino {
       this.speedY = 0;
       this.y = this.y0;
     }
+
+    this.moveBullet()
   }
 
   isFloor() {
@@ -76,5 +82,30 @@ class Dino {
       this.y -= 10;
     }
   }
+
+  shoot() {
+    const bullet = new Bullet(
+      this._ctx,
+      this.x + this.width * 0.8,
+      this.y + 50,
+    )
+    this.bullets.push(bullet)
+  }
+
+  clearBullets() {
+    this.bullets = this.bullets.filter(b => b.isVisible())
+  }
+
+  drawBullet() {
+    this.bullets.forEach(b => b.draw())
+  }
+
+  moveBullet() {
+    this.bullets.forEach(b => b.move())
+  }
 }
 
+
+    
+  
+    
